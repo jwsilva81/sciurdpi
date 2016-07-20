@@ -1,0 +1,12 @@
+Brlapi==0.6.2
+chardet==2.3.0
+Django==1.7.7
+louis==2.5.3
+Mako==1.0.0
+MarkupSafe==0.23
+Pillow==2.6.1
+pygobject==3.14.0
+python-apt==0.9.3.12
+python-debian==0.1.27
+pyxdg==0.25
+six==1.8.0

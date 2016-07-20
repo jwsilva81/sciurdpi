@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+	 <meta charset="utf-8">
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <title>SCIURD</title>
+	 <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+ 
+</head>
+<body> 
+	<h1> HELLO, BOOTSTRAP!</H1>
+
+	 <script src="js/jquery.min.js"></script>
+	 <script src="js/bootstrap.min.js"></script>
+</body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+ <div class="container-fluid">
+  <div class="navbar-header">
+   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+   </button>
+   <a class="navbar-brand" href="#">SCIURD-PI</a>
+  </div>
+  <div id="navbar" class="navbar-collapse collapse">
+   <ul class="nav navbar-nav navbar">
+    <li><a href="#">Cadastro</a></li>
+    <li><a href="#">Listagem</a></li>
+    <li><a href="#">Relatorio</a></li>
+    </ul>
+   <ul class="nav navbar-nav navbar-right">
+    <li><a href="#">Sair</a></li>
+  </div>
+ </div>
+</nav>
+<div id="main" class="container-fluid">
+ <h3 class="page-header">Visualizar Item</h3>
+<div class="row">
+  <div class="col-md-4">
+    <p><strong>Nome</strong></p>
+    <p>{Valor do Campo}</p>
+</div>
+
+<div class="col-md-4">
+   <p><strong>Nome do Campo</strong></p>
+   <p>{Valor do Campo}</p>
+</div>
+
+<div class="form-group col-md-4">
+  <p><strong>Nome do Campo</strong></p>
+  <p>{Valor do Campo}</p>
+</div>
+
+</div>
+</html>

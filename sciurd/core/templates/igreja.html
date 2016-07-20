@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <div id="main" class="container-fluid">
+ <h3 class="page-header">Dados da Igreja</h3>
+ <form action="index.html">
+  <div class="row">
+
+<div class="form-group">
+  <label for="sel1">IURD:</label>
+  <select class="cidades-" id="sel1">
+    <option>barão</option>
+    <option>monte castelo</option>
+    <option>picos</option>
+    <option>promora</option>
+  </select>
+</div>
+ </div>
+ <div class="form-group col-md-4">
+   <label for="campo1">CNPJ</label>
+   <input type="text" class="form-control" id="campo1">
+ </div>
+  <div class="form-group col-md-4">
+   <label for="campo2">Estado</label>
+   <input type="text" class="form-control" id="campo2">
+ </div>
+ 
+ <div class="form-group col-md-4">
+   <label for="campo3">Pastor:</label>
+   <input type="text" class="form-control" id="campo3">
+ </div>
+
+<div class="form-group col-md-4">
+   <label for="campo4">Endereço</label>
+   <input type="text" class="form-control" id="campo4">
+ </div>
+ 
+ <div class="form-group col-md-4">
+   <label for="campo5">Número</label>
+   <input type="text" class="form-control" id="campo5">
+ </div>
+ 
+ <div class="form-group col-md-4">
+   <label for="campo6">Telefone:</label>
+   <input type="text" class="form-control" id="campo6">
+ </div>
+
+ <div class="form-group col-md-4">
+   <label for="campo4">Cidade</label>
+   <input type="text" class="form-control" id="campo4">
+ </div>
+ 
+ <div class="form-group col-md-4">
+   <label for="campo5">Bairro</label>
+   <input type="text" class="form-control" id="campo5">
+ </div>
+ 
+ <div class="form-group col-md-4">
+   <label for="campo6">Celular:</label>
+   <input type="text" class="form-control" id="campo6">
+ </div>
+
+ <div class="form-group col-md-4">
+   <label for="campo4">Copelmento</label>
+   <input type="text" class="form-control" id="campo4">
+ </div>
+ 
+ <div class="form-group col-md-4">
+   <label for="campo5">CEP</label>
+   <input type="text" class="form-control" id="campo5">
+ </div>
+ 
+ <div class="form-group col-md-4">
+   <label for="campo6">E-mail:</label>
+   <input type="text" class="form-control" id="campo6">
+ </div>
+
+ <div class="checkbox">
+ <label>Possui Carro</label> 
+ <label>
+   <input type= "checkbox" >Sim</label>
+<label>
+   <input type= "checkbox" >Não</label>
+ 
+</div>
+
+  <div class="checkbox">
+ <label>É</label> 
+ <label>
+   <input type= "checkbox" >Auxiliar</label>
+<label>
+   <input type= "checkbox" >Pr.Titula</label>
+<label>
+   <input type= "checkbox" >Bispo</label>   
+</div>
+
+</div>
+  <!-- area de campos do form -->
+  <hr />
+  <div id="actions" class="row">
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-primary">Salvar</button>
+      <a href="index.html" class="btn btn-default">Cancelar</a>
+    </div>
+  </div>
+</form>
+
+</div>
+</html>
