@@ -2,35 +2,32 @@ from django.contrib import admin
 from core.models import Pastor, Esposa, Filho, Igreja, Carro
 
 
-class PatorAdmin(admin.ModelAdmin):
-	list_display = ['nome', 'cpf']
-	search_fields = ['nome', 'cpf']
-	
+class PastorAdmin(admin.ModelAdmin):
+    list_display = ['nome', 'cpf']
+    search_fields = ['nome', 'cpf']
+
 
 class EsposaAdmin(admin.ModelAdmin):
-	list_display = ('name', 'cpf')
+    list_display = ('nome', 'cpf')
 
 
 class FilhoAdmin(admin.ModelAdmin):
-	list_display  = ('nome')
+    list_display = ('nome',)
 
-class IngrejaAdmin(admin.ModelAdmin):
-	list_display = ('regiao', 'pastor_regional')
-	search_fields  =('regiao', 'pastor_regional')
+
+class IgrejaAdmin(admin.ModelAdmin):
+    list_display = ('IURD', 'endereco')
+    search_fields = ('IURD', 'endereco')
+
 
 class CarroAdmin(admin.ModelAdmin):
-	list_display = ('placa', 'renavan')
-	search_fields = ('placa', 'renavan')
+    list_display = ('placa', 'renavan')
+    search_fields = ('placa', 'renavan')
 
 
-
-	admin.site.register(Pastor)
-	admin.site.register(Esposa)
-	admin.site.register(Filho)
-	admin.site.register(Igreja) 
-	admin.site.register(Carro)
-#admin.site.register(Carro, Carro
-
-
-
-
+admin.site.register(Pastor, PastorAdmin)
+admin.site.register(Esposa, EsposaAdmin)
+admin.site.register(Filho, FilhoAdmin)
+admin.site.register(Igreja, IgrejaAdmin)
+admin.site.register(Carro, CarroAdmin)
+# admin.site.register(Carro, Carro
