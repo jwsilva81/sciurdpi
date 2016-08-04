@@ -3,162 +3,157 @@ from django.db import models
 
 class Pastor(models.Model):
 
-	REGIAO_CHOICE = (
-		('barao',  'BARAO'),
-		('lorival', 'LORIVAL'),
-		('sede', 's')
-	)
+    REGIAO_CHOICE = (
+        ('barao', 'BARAO'),
+        ('lorival', 'LORIVAL'),
+        ('sede', 's')
+    )
 
-	ESTADO_CIVIL_CHOICE = (
-		('C', 'CASADO'),
-		('D', 'DIRVOCIADO'),
-		('S', 'SOLTEIRO'),
-		('V', 'VIUVO')
-	)
-	
-	GRAU_DE_INSTRUÇÃO_CHOICE = (
-		('1°', '1°Grau'),
-		('2°', '2°Grau'),
-		('S', 'Superior'),
-	)
-	
-	PASTOR_CHOICE = (
-		('Aux', 'Auxiliar'),
-		('Pr', 'Pr.Titular'),
-		('Bp', ' Bispo'),
-	)
-	
+    ESTADO_CIVIL_CHOICE = (
+        ('C', 'CASADO'),
+        ('D', 'DIRVOCIADO'),
+        ('S', 'SOLTEIRO'),
+        ('V', 'VIUVO')
+    )
 
-	Nome = models.CharField('Nome', max_length=30)
-	estado_civil = models.CharField(max_length=10, choices = ESTADO_CIVIL_CHOICE)
-	Pastor_Regional = models.BooleanField(default=False)
-	Data_de_Nascimento = models.DateField('Data_de_Nascimento')
-	Cpf = models.CharField('Cpf', max_length=20, blank=True)
-	Rg = models.CharField(max_length=20)
-	Data_de_Exp = models.DateField('Data_de_Exp')
-	Cnh = models.CharField(max_length=20)
-	Regiao = models.CharField(max_length=10,  choices = REGIAO_CHOICE)
-	Titulo_Eleitor = models.CharField(max_length=20)
-	Zona = models.CharField(max_length=10)
-	Seção = models.CharField(max_length=20)
-	Passaporte = models.CharField(max_length=15)
-	Nacionalidade = models.CharField(max_length=20, blank=True)
-	Naturalidada_UF = models.CharField(max_length=20, blank=True)
-	Grau_de_Instrução = models.CharField(max_length=30, choices = GRAU_DE_INSTRUÇÃO_CHOICE, blank=True)
-	Proficao = models.CharField(max_length=20, blank=True)
-	Esposa = models.ForeignKey('Esposa',)
-	Indioma = models.CharField(max_length=10)
-	Telefone = models.CharField(max_length=10)
-	Celula = models.CharField(max_length=20, default= "")
-	Email = models.EmailField(unique=True)
-	#Skayp = models.CharField(max_length=10, blank=True)
-	#Facebook = models.CharField(max_length=20, blank=True)
-	Whatsapp = models.CharField(max_length=10, blank=True)
-	Pastor = models.CharField(max_length=20,  choices = PASTOR_CHOICE, blank=True)
-	#Tempo_de_Evangelho = models.CharField(max_length=15, blank=True)
+    GRAU_DE_INSTRUÇÃO_CHOICE = (
+        ('1°', '1°Grau'),
+        ('2°', '2°Grau'),
+        ('S', 'Superior'),
+    )
 
-	class Meta:
-		verbose_name = ('Pastor')
-		verbose_name_plural = ('Pastores')
+    PASTOR_CHOICE = (
+        ('Aux', 'Auxiliar'),
+        ('Pr', 'Pr.Titular'),
+        ('Bp', ' Bispo'),
+    )
 
+    nome = models.CharField('Nome', max_length=30)
+    estado_civil = models.CharField(
+        max_length=10, choices=ESTADO_CIVIL_CHOICE
+    )
+    pastor_regional = models.BooleanField(default=False)
+    data_de_nascimento = models.DateField('Data_de_Nascimento')
+    cpf = models.CharField('Cpf', max_length=20, blank=True)
+    rg = models.CharField(max_length=20)
+    data_de_exp = models.DateField('Data_de_Exp')
+    cnh = models.CharField(max_length=20)
+    regiao = models.CharField(max_length=10, choices=REGIAO_CHOICE)
+    titulo_eleitor = models.CharField(max_length=20)
+    zona = models.CharField(max_length=10)
+    seção = models.CharField(max_length=20)
+    passaporte = models.CharField(max_length=15)
+    nacionalidade = models.CharField(max_length=20, blank=True)
+    naturalidada_uf = models.CharField(max_length=20, blank=True)
+    grau_de_instrução = models.CharField(
+        max_length=30,
+        choices=GRAU_DE_INSTRUÇÃO_CHOICE,
+        blank=True
+    )
+    proficao = models.CharField(max_length=20, blank=True)
+    esposa = models.ForeignKey('Esposa',)
+    indioma = models.CharField(max_length=10)
+    telefone = models.CharField(max_length=10)
+    celula = models.CharField(max_length=20, default="")
+    email = models.EmailField(unique=True)
+    # Skayp = models.CharField(max_length=10, blank=True)
+    # Facebook = models.CharField(max_length=20, blank=True)
+    whatsapp = models.CharField(max_length=10, blank=True)
+    pastor = models.CharField(
+        max_length=20,
+        choices=PASTOR_CHOICE,
+        blank=True
+    )
+    # Tempo_de_Evangelho = models.CharField(max_length=15, blank=True)
 
-	def __unicode__(self):
-		return self.Nome
-		verbose_name = 'Pastor'
-		verbose_name_plural = 'Pastor'
+    class Meta:
+        verbose_name = 'Pastor'
+        verbose_name_plural = 'Pastores'
+
+    def __unicode__(self):
+        return self.Nome
 
 
 class Esposa(models.Model):
 
-	Nome = models.CharField(max_length=20)
-	Casamento_Data = models.DateField('Certidao_de_Casamento')
-	Cpf = models.CharField('CPF', max_length=11, unique=True)
-	Rg = models.CharField(max_length=20)
-	Data_de_Exp = models.DateField('Data_de_Exp')
-	Titulo_Eleitor = models.CharField(max_length=20)
-	Passaporte = models.CharField(max_length=20, blank=True)
-	Nacionalidade = models.CharField(max_length=20, blank=True)
-	Naturalidade = models.CharField(max_length=20, blank=True)
-	Formacao = models.CharField(max_length=20, blank=True)
-	Proficao = models.CharField(max_length=20)
-	Indioma = models.CharField(max_length=10, blank=True)
-	Tempo_de_Evangelho = models.CharField(max_length=10, blank=True)
+    nome = models.CharField(max_length=20)
+    casamento_data = models.DateField('Certidao_de_Casamento')
+    cpf = models.CharField('CPF', max_length=11, unique=True)
+    rg = models.CharField(max_length=20)
+    data_de_exp = models.DateField('Data_de_Exp')
+    titulo_eleitor = models.CharField(max_length=20)
+    passaporte = models.CharField(max_length=20, blank=True)
+    nacionalidade = models.CharField(max_length=20, blank=True)
+    naturalidade = models.CharField(max_length=20, blank=True)
+    formacao = models.CharField(max_length=20, blank=True)
+    proficao = models.CharField(max_length=20)
+    indioma = models.CharField(max_length=10, blank=True)
+    tempo_de_evangelho = models.CharField(max_length=10, blank=True)
 
-	class Meta:
-		verbose_name = ('Esposa')
-		verbose_name_plural = ('Esposas')
+    class Meta:
+        verbose_name = 'Esposa'
+        verbose_name_plural = 'Esposas'
 
-	def __unicode__(self):
-		return self.Nome
-		verbose_name = 'Esposa'
-		verbose_name = 'Esposas'
+    def __unicode__(self):
+        return self.Nome
 
 
 class Filho(models.Model):
-	Nome = models.CharField(max_length=30)
-	Data_de_Nascimento = models.DateField('Data_de_Nascimento')
+    nome = models.CharField(max_length=30)
+    data_de_nascimento = models.DateField('Data_de_Nascimento')
 
-	class Meta:
-		verbose_name = ('Filho')
-		verbose_name_plural = ('Filhos')
+    class Meta:
+        verbose_name = 'Filho'
+        verbose_name_plural = 'Filhos'
 
-	def __unicode__(self):
-		return self.Nome
-		verbose_name = 'Esposa'
-		verbose_name = 'Esposas'
+    def __unicode__(self):
+        return self.Nome
 
-
-	
 
 class Igreja(models.Model):
 
+    IURD_CHOICE = (
+        ('barao', 'BARAO'),
+        ('lorival', 'LORIVAL'),
+        ('sede', 's')
+    )
 
-	IURD_CHOICE = (
-		('barao',  'BARAO'),
-		('lorival', 'LORIVAL'),
-		('sede', 's')
-	)
+    IURD = models.CharField(
+        max_length=10,
+        choices=IURD_CHOICE,
+        blank=True
+    )
+    bairro = models.CharField(max_length=15, blank=True)
+    carro = models.ForeignKey('Carro')
+    cep = models.CharField(max_length=15, blank=True)
+    cidade = models.CharField(max_length=15, blank=True)
+    cnpj = models.CharField(max_length=15, blank=True)
+    contato = models.CharField(max_length=15, blank=True)
+    email = models.CharField(max_length=15, blank=True)
+    endereco = models.CharField(max_length=15, blank=True)
+    numero = models.CharField(max_length=15)
+    possui_carro = models.BooleanField(default=True)
+    telefone = models.CharField(max_length=15, blank=True)
+    # Pastores_da_Regiao = models.CharField(max_length=20)
+
+    class Meta:
+        verbose_name = 'Igreja'
+        verbose_name_plural = 'Igrejas'
+
+    def __unicode__(self):
+        return self.Nome
 
 
-	IURD = models.CharField(max_length=10, choices = IURD_CHOICE, blank=True)
-	CNPJ =models.CharField(max_length=15, blank=True)
-	Contato =models.CharField(max_length=15, blank=True)
-	Endereco =models.CharField(max_length=15, blank=True)
-	Numero =models.CharField(max_length=15)
-	Bairro  =models.CharField(max_length=15, blank=True)
-	Cidade  =models.CharField(max_length=15, blank=True)
-	Cep =models.CharField(max_length=15, blank=True)
-	Telefone =models.CharField(max_length=15, blank=True)
-	Email = models.CharField(max_length=15, blank=True)
-	#Pastores_da_Regiao = models.CharField(max_length=20)
-	Possui_Carro = models.BooleanField(default=True)
-	Carro = models.ForeignKey('Carro')
-	
-
-	class Meta:
-		verbose_name = ('Igreja')
-		verbose_name_plural = ('Igrejas')
-
-	def __unicode__(self):
-		return self.Nome
-		verbose_name = 'Esposa'
-		verbose_name = 'Esposas'
-
-
-#Carro
 class Carro(models.Model):
-	Placa = models.CharField(max_length=20, default = 'xxx-xxxx')
-	Renava = models.CharField(max_length=20)
-	Marca = models.CharField(max_length=20)
-	Modelo = models.CharField(max_length=20)
-	Ano = models.IntegerField()
+    placa = models.CharField(max_length=20, default='xxx-xxxx')
+    renavan = models.CharField(max_length=20)
+    marca = models.CharField(max_length=20)
+    modelo = models.CharField(max_length=20)
+    ano = models.IntegerField()
 
-	class Meta:
-		verbose_name = ('Carro')
-		verbose_name_plural = ('Carros')
+    class Meta:
+        verbose_name = 'Carro'
+        verbose_name_plural = 'Carros'
 
-	def __unicode__(self):
-		return self.Placa
-		verbose_name = 'Carro'
-		verbose_name = 'Carros'
-
+    def __unicode__(self):
+        return self.Placa
